@@ -1,3 +1,6 @@
+
+##task1
+
 f1= open('sample.txt','r')
 read_file=f1.read()
 print(read_file)
@@ -29,3 +32,4 @@ read_file1=file1.read()
 print("final content of output.txt is :")
 print(read_file1)
 file1.close()
+
