@@ -1,0 +1,103 @@
+
+from tkinter import *
+
+
+
+window=Tk()
+window.geometry("350x300")
+window.title("Calculator")
+import math
+e=Entry(window,width=35)
+e.place(x=0,y=0)
+def click(num):
+    n1=e.get()
+    e.delete(0, END)
+
+
+    e.insert(0,str(n1)+str(num))
+b=Button(window,text="1",bg="pink",width=10,height=2,font=("Arial", 8, "bold"),borderwidth=3,command=lambda:click("1"))
+b.place(x=10,y=30)
+b=Button(window,text="2",bg="pink",width=10,height=2, font=("Arial", 8, "bold"),borderwidth=3,command=lambda:click("2"))
+b.place(x=10,y=70)
+
+b=Button(window,text="3",bg="pink",width=10,height=2, font=("Arial", 8, "bold"),borderwidth=3,command=lambda:click("3"))
+b.place(x=10,y=100)
+b=Button(window,text="4",bg="pink",width=10,height=2,borderwidth=3,font=("Arial", 8, "bold"),command=lambda:click("4"))
+b.place(x=10,y=130)
+b=Button(window,text="5",bg="pink",width=10,height=2,borderwidth=3,font=("Arial", 8, "bold"),command=lambda:click("5"))
+b.place(x=10,y=170)
+b=Button(window,text="6",bg="pink",width=10,height=2,borderwidth=3,font=("Arial", 8, "bold"),command=lambda:click("6"))
+b.place(x=100,y=30)
+b=Button(window,text="7",bg="pink",width=10,height=2,borderwidth=3,font=("Arial", 8, "bold"),command=lambda:click("7"))
+b.place(x=100,y=70)
+b=Button(window,text="8",bg="pink",width=10,height=2,borderwidth=3,font=("Arial", 8, "bold"),command=lambda:click("8"))
+b.place(x=100,y=100)
+b=Button(window,text="9",bg="pink",width=10,height=2,borderwidth=3,font=("Arial", 8, "bold"),command=lambda:click("9"))
+b.place(x=100,y=130)
+b=Button(window,text="0",bg="pink",width=10,height=2,borderwidth=3,font=("Arial", 8, "bold"),command=lambda:click("0"))
+b.place(x=100,y=170)
+def addition():
+    n1=e.get()
+    import math
+    global operation
+    operation = "addition"
+    global i
+    i=int(n1)
+    e.delete (0,END)
+
+b=Button(window,text="+",bg="pink",width=10,height=2,borderwidth=3,font=("Arial", 8, "bold"),command= addition )
+b.place(x=200,y=30)
+def subtraction():
+    n1=e.get()
+    import math
+    global operation
+    operation = "subtraction"
+    global i
+    i=int(n1)
+    e.delete (0,END)
+b=Button(window,text="-",bg="pink",width=10,height=2,borderwidth=3,font=("Arial", 8, "bold"),command=subtraction )
+b.place(x=200,y=70)
+def multiply():
+    n1=e.get()
+    import math
+    global operation
+    operation = "multiply"
+    global i
+    i=int(n1)
+    e.delete (0,END)
+b=Button(window,text="*",bg="pink",width=10,height=2,borderwidth=3,font=("Arial", 8, "bold"),command=multiply )
+b.place(x=200,y=100)
+def division():
+    n1=e.get()
+    import math
+    global operation
+    operation = "division"
+    global i
+    i=int(n1)
+    e.delete (0,END)
+b=Button(window,text="/",bg="pink",width=10,height=2,borderwidth=3,font=("Arial", 8, "bold"),command=division )
+b.place(x=200,y=130)
+def equal():
+    n2 = e.get()
+    e.delete(0,END)
+    if operation  == "addition":
+        e.insert(0,i+int(n2))
+    elif operation == "subtraction":
+        e.insert(0,i-int(n2))
+    elif operation == "multiply":
+        e.insert(0,i*int(n2))
+    elif operation == "division":
+        e.insert(0,i/int(n2))
+
+
+
+b=Button(window,text="=",bg="pink",width=10,height=2,borderwidth=3,font=("Arial", 8, "bold"),command=equal)
+b.place(x=100,y=170)
+def clear():
+    e.delete(0,END)
+b=Button(window,text="clear",bg="pink",width=10,height=2,borderwidth=3,font=("Arial", 8, "bold"),command=clear)
+b.place(x=100,y=200)
+
+
+
+window.mainloop()
